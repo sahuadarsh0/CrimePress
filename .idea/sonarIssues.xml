@@ -13,6 +13,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/techipinfotech/allindiacrimepress/data/local/MembersDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/techipinfotech/allindiacrimepress/model/MemberItem.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <value>
             <set />
@@ -34,6 +44,41 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/MyApp.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/data/RemoteDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/data/local/AppDatabase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/data/local/MembersDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/data/remote/ApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/data/remote/BaseDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/data/remote/RemoteDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/data/repository/MainRepository.kt">
           <value>
             <set />
           </value>
@@ -84,6 +129,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/utils/Constants.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/utils/DataAccessStrategy.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/utils/Resource.kt">
           <value>
             <set />
           </value>
@@ -189,6 +244,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/slider/src/main/java/com/techipinfotech/slider/SpeedRecyclerView.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SuccessCurve/app/build.gradle">
           <value>
             <set />
           </value>
