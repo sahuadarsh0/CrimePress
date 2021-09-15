@@ -73,7 +73,7 @@ dependencies {
 
     // Lottie Animation Library
     implementation "com.airbnb.android:lottie:3.7.0"
-
+    implementation 'com.eightbitlab:blurview:1.6.6'
 
 //  Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version"
