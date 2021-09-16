@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.afollestad.materialdialogs.MaterialDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -50,8 +49,16 @@ class MainActivity : AppCompatActivity() {
                     }
                     return@setOnItemSelectedListener true
                 }
-                R.id.navigation_dashboard -> {
-                    navController.navigate(R.id.navigation_dashboard)
+                R.id.navigation_home -> {
+                    navController.navigate(R.id.navigation_home)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.navigation_gallery -> {
+                    navController.navigate(R.id.navigation_gallery)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.navigation_my_list -> {
+                    navController.navigate(R.id.navigation_my_list)
                     return@setOnItemSelectedListener true
                 }
                 else -> Toast.makeText(this, "Select an item", Toast.LENGTH_SHORT).show()
