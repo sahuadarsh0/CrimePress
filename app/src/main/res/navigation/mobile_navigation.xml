@@ -6,6 +6,12 @@
     app:startDestination="@+id/navigation_home">
 
     <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.techipinfotech.allindiacrimepress.ui.accounts.AccountsFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragments_accounts" />
+
+    <fragment
         android:id="@+id/navigation_home"
         android:name="com.techipinfotech.allindiacrimepress.ui.home.HomeFragment"
         android:label="@string/title_home"

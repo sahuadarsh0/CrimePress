@@ -12,67 +12,67 @@ data class MemberItem(
     @SerializedName("id")
     val id: String,
     @SerializedName("member_id")
-    val memberId: String,
+    val memberId: String? =null,
     @SerializedName("name")
-    val name: String,
+    val name: String? =null,
     @SerializedName("fname")
-    val fName: String,
+    val fName: String? =null,
     @SerializedName("photo")
-    val photo: String,
+    val photo: String? =null,
     @SerializedName("gender")
-    val gender: String,
+    val gender: String? =null,
     @SerializedName("dob")
-    val dob: String,
+    val dob: String? =null,
     @SerializedName("mobile")
-    val mobile: String,
+    val mobile: String? =null,
     @SerializedName("email")
-    val email: String,
+    val email: String? =null,
     @SerializedName("bloodgroup")
-    val bloodGroup: String,
+    val bloodGroup: String? =null,
     @SerializedName("addharno")
-    val addharNo: String,
+    val addharNo: String? =null,
     @SerializedName("panno")
-    val panNo: String,
+    val panNo: String? =null,
     @SerializedName("qualification")
-    val qualification: String,
+    val qualification: String? =null,
     @SerializedName("profession")
-    val profession: String,
+    val profession: String? =null,
     @SerializedName("caddress")
-    val cAddress: String,
+    val cAddress: String? =null,
     @SerializedName("paddress")
-    val pAddress: String,
+    val pAddress: String? =null,
     @SerializedName("city")
-    val city: String,
+    val city: String? =null,
     @SerializedName("state")
-    val state: String,
+    val state: String? =null,
     @SerializedName("country")
-    val country: String,
+    val country: String? =null,
     @SerializedName("pinno")
-    val pinNo: String,
+    val pinNo: String? =null,
     @SerializedName("chequename")
-    val chequeName: String,
+    val chequeName: String? =null,
     @SerializedName("accountno")
-    val accountNo: String,
+    val accountNo: String? =null,
     @SerializedName("bankname")
-    val bankName: String,
+    val bankName: String? =null,
     @SerializedName("branch")
-    val branch: String,
+    val branch: String? =null,
     @SerializedName("accounttype")
-    val accountType: String,
+    val accountType: String? =null,
     @SerializedName("ifsccode")
-    val ifscCode: String,
+    val ifscCode: String? =null,
     @SerializedName("nomineename")
-    val nomineeName: String,
+    val nomineeName: String? =null,
     @SerializedName("sponser_id")
-    val sponserId: String,
+    val sponserId: String? =null,
     @SerializedName("password")
-    val password: String,
+    val password: String? =null,
     @SerializedName("remark")
-    val remark: String,
+    val remark: String? =null,
     @SerializedName("joiningdate")
-    val joiningDate: String,
+    val joiningDate: String? =null,
     @SerializedName("qrcodefile")
-    val qrCodeFile: String,
+    val qrCodeFile: String? =null,
     @SerializedName("post")
-    val post: String
+    val post: String? =null
 )

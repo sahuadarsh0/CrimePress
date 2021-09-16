@@ -32,6 +32,23 @@ class MainActivity : AppCompatActivity() {
 
         navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.navigation_account -> {
+                    navController.navigate(R.id.navigation_account)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.navigation_home -> {
+                    navController.navigate(R.id.navigation_home)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.navigation_gallery -> {
+                    navController.navigate(R.id.navigation_gallery)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.navigation_my_list -> {
+                    navController.navigate(R.id.navigation_my_list)
+                    return@setOnItemSelectedListener true
+                }
+
                 R.id.logout -> {
                     MaterialDialog(this).show {
                         title(text = "Logout?")
@@ -47,18 +64,6 @@ class MainActivity : AppCompatActivity() {
                             dialog.dismiss()
                         }
                     }
-                    return@setOnItemSelectedListener true
-                }
-                R.id.navigation_home -> {
-                    navController.navigate(R.id.navigation_home)
-                    return@setOnItemSelectedListener true
-                }
-                R.id.navigation_gallery -> {
-                    navController.navigate(R.id.navigation_gallery)
-                    return@setOnItemSelectedListener true
-                }
-                R.id.navigation_my_list -> {
-                    navController.navigate(R.id.navigation_my_list)
                     return@setOnItemSelectedListener true
                 }
                 else -> Toast.makeText(this, "Select an item", Toast.LENGTH_SHORT).show()

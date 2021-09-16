@@ -33,7 +33,7 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideBaseUrl() = Constants.BASE_URL
+    fun provideBaseUrl() = Constants.BASE_URL.toString()
 
     @Singleton
     @Provides

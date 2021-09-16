@@ -12,7 +12,7 @@ import com.techipinfotech.allindiacrimepress.databinding.FragmentMyListBinding
 
 class ListFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var listViewModel: ListViewModel
     private var _binding: FragmentMyListBinding? = null
 
     // This property is only valid between onCreateView and
@@ -24,14 +24,14 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        listViewModel =
+            ViewModelProvider(this).get(ListViewModel::class.java)
 
         _binding = FragmentMyListBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        listViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
