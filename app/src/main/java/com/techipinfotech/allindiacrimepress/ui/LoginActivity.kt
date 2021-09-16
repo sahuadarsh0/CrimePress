@@ -1,20 +1,41 @@
 package com.techipinfotech.allindiacrimepress.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.techipinfotech.allindiacrimepress.R
 import com.techipinfotech.allindiacrimepress.databinding.ActivityLoginBinding
+import com.techipinfotech.allindiacrimepress.utils.SharedPrefs
 import eightbitlab.com.blurview.RenderScriptBlur
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var userSharedPreferences: SharedPrefs
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var i: Intent
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_CrimePress)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
+        userSharedPreferences = SharedPrefs(this, "USER")
+        i = Intent(this, MainActivity::class.java)
+
+        if (userSharedPreferences["member_id"] != null) {
+            startActivity(i)
+            finish()
+        }
+
+        binding.loginButton.setOnClickListener {
+            startActivity(i)
+            finish()
+        }
+        initBlur()
+    }
+
+    private fun initBlur() {
         val radius = 20f
 
         val decorView = window.decorView;

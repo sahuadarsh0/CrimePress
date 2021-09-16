@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/drawable/bg_bottom_nav.xml" value="0.3452502553626149" />
         <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/drawable/bg_edit_text.xml" value="0.32788559754851887" />
         <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/drawable/ic_lock.xml" value="0.3452502553626149" />
         <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/drawable/ic_person.xml" value="0.32788559754851887" />
         <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/drawable/splash.xml" value="0.3398148148148148" />
         <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/layout/activity_main2.xml" value="0.33177083333333335" />
+        <entry key="..\:/Important_Docs/Projects/Backup/CrimePress/app/src/main/res/menu/bottom_nav_menu.xml" value="0.30833333333333335" />
       </map>
     </option>
   </component>
