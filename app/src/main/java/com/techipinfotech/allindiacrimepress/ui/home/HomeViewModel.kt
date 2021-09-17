@@ -14,5 +14,6 @@ class HomeViewModel @Inject constructor(private val repository: MainRepository) 
 
     val members = repository.getMembersList()
     val gallery = liveData { emit(repository.getGallery()) }
+    val banner = liveData { emit(repository.getBanner()) }
 
 }

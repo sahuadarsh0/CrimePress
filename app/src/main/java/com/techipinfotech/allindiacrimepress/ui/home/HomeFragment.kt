@@ -1,18 +1,17 @@
 package com.techipinfotech.allindiacrimepress.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
-import com.techipinfotech.allindiacrimepress.R
 import com.techipinfotech.allindiacrimepress.databinding.FragmentHomeBinding
+import com.techipinfotech.allindiacrimepress.utils.Constants
+import com.techipinfotech.allindiacrimepress.utils.Resource.Status.SUCCESS
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,20 +32,27 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        homeViewModel.members.observe(viewLifecycleOwner, Observer {
+        homeViewModel.members.observe(viewLifecycleOwner, {
             textView.text = it.data.toString()
         })
 
-        val imageList = ArrayList<SlideModel>() // Create image list
+        val imageList = ArrayList<SlideModel>()
+        homeViewModel.banner.observe(viewLifecycleOwner, {
+            when (it.status) {
+                SUCCESS -> {
+                    val banner = it.data
 
-// imageList.add(SlideModel("String Url" or R.drawable)
-// imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
+                    for ((i, v) in banner!!.withIndex()) {
+                        imageList.add(SlideModel(Constants.BANNER.toString() + v.photo, v.title))
+                        Log.d("asa", "onCreateView: $i"+Constants.BANNER.toString() + v.photo)
+                    }
 
-        imageList.add(SlideModel("https://bit.ly/2YoJ77H", "The animal population decreased by 58 percent in 42 years."))
-        imageList.add(SlideModel("https://bit.ly/2BteuF2", "Elephants and tigers may become extinct."))
-        imageList.add(SlideModel("https://bit.ly/3fLJf72", "And people do that."))
+                    binding.imageSlider.setImageList(imageList)
+                }
+                else -> Log.d("asa", "Slider Error")
+            }
+        })
 
-        binding.imageSlider.setImageList(imageList)
 
         return root
     }

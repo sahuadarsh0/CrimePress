@@ -2,7 +2,7 @@ package com.techipinfotech.allindiacrimepress.utils
 
 enum class Constants(private val text: String) {
 
-    URL("https://crimepress.allindiacrimepress.com/"),
+    URL("https://aicpnews.in/"),
     BASE_URL(URL.toString() + "tipilogin/"),
 
     ASSETS_URL(URL.toString() + "uploads/tipilogin/"),
