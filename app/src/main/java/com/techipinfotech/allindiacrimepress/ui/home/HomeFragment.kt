@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.techipinfotech.allindiacrimepress.databinding.FragmentHomeBinding
 import com.techipinfotech.allindiacrimepress.utils.Constants
@@ -31,10 +32,10 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.members.observe(viewLifecycleOwner, {
-            textView.text = it.data.toString()
-        })
+//        val textView: TextView = binding.textHome
+//        homeViewModel.members.observe(viewLifecycleOwner, {
+//            textView.text = it.data.toString()
+//        })
 
         val imageList = ArrayList<SlideModel>()
         homeViewModel.banner.observe(viewLifecycleOwner, {
@@ -42,12 +43,12 @@ class HomeFragment : Fragment() {
                 SUCCESS -> {
                     val banner = it.data
 
-                    for ((i, v) in banner!!.withIndex()) {
-                        imageList.add(SlideModel(Constants.BANNER.toString() + v.photo, v.title))
-                        Log.d("asa", "onCreateView: $i"+Constants.BANNER.toString() + v.photo)
+                    if (banner != null) {
+                        for ((i, v) in banner.withIndex()) {
+                            imageList.add(SlideModel(Constants.BANNER.toString() + v.photo, v.title))
+                        }
+                        binding.imageSlider.setImageList(imageList,ScaleTypes.CENTER_CROP)
                     }
-
-                    binding.imageSlider.setImageList(imageList)
                 }
                 else -> Log.d("asa", "Slider Error")
             }
