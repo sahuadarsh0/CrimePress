@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<variable
-    name="member"
-    type="com.techipinfotech.allindiacrimepress.model.MemberItem" />
+        <import type="com.techipinfotech.allindiacrimepress.utils.Constants" />
+        <variable
+            name="member"
+            type="com.techipinfotech.allindiacrimepress.model.MemberItem" />
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:layout_margin="4dp"
-        app:cardElevation="2dp"
-        android:layout_height="150dp">
+        app:cardElevation="2dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -24,6 +25,7 @@
                 android:layout_width="120dp"
                 android:layout_height="0dp"
                 android:src="@drawable/logo"
+                android:setImage="@{Constants.PHOTO+member.photo}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="h,1:1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -33,10 +35,11 @@
 
             <TextView
                 android:id="@+id/member_id"
+                style="@style/TextBlack.medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextBlack.medium"
                 android:layout_marginStart="8dp"
+                android:text="@{member.memberId}"
                 app:layout_constraintStart_toEndOf="@+id/photo"
                 app:layout_constraintTop_toTopOf="@+id/photo"
                 tools:text="AICP00090" />
@@ -58,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:text="@{member.name}"
                 android:textStyle="normal"
                 app:layout_constraintBaseline_toBaselineOf="@+id/name_label"
                 app:layout_constraintEnd_toEndOf="parent"
