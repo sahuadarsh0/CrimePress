@@ -118,12 +118,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/model/Banner.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/model/Gallery.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/model/GalleryItem.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/model/Member.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/model/MemberItem.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/model/Notifitacion.kt">
           <value>
             <set />
           </value>
@@ -144,6 +164,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/ui/accounts/AccountsFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/techipinfotech/allindiacrimepress/ui/accounts/AccountsViewModel.kt">
           <value>
             <set />
           </value>
@@ -294,6 +319,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
           <value>
             <set />
           </value>

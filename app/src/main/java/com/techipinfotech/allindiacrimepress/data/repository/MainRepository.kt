@@ -14,4 +14,8 @@ class MainRepository @Inject constructor(
         databaseQuery = { localDataSource.getMembersList() },
         networkCall = { remoteDataSource.getMembersList() },
         saveCallResult = { localDataSource.insertAll(it) })
+
+    suspend fun getGallery() = remoteDataSource.getGallery()
+    suspend fun getBanner() = remoteDataSource.getBanner()
+
 }
