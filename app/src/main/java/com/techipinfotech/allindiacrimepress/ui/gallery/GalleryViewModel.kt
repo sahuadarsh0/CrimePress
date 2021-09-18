@@ -9,5 +9,5 @@ import javax.inject.Inject
 @HiltViewModel
 class GalleryViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
-    val gallery = liveData { emit(repository.getGallery()) }
+    val gallery = repository.getGallery()
 }

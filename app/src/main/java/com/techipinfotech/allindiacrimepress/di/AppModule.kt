@@ -5,6 +5,7 @@ import android.util.Log
 import com.techipinfotech.allindiacrimepress.data.remote.ApiService
 import com.techipinfotech.allindiacrimepress.BuildConfig
 import com.techipinfotech.allindiacrimepress.data.local.AppDatabase
+import com.techipinfotech.allindiacrimepress.data.local.GalleryDao
 import com.techipinfotech.allindiacrimepress.data.local.MembersDao
 import com.techipinfotech.allindiacrimepress.data.remote.RemoteDataSource
 import com.techipinfotech.allindiacrimepress.data.repository.MainRepository
@@ -85,10 +86,14 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideCharacterDao(db: AppDatabase) = db.membersDao()
+    fun provideMembersDao(db: AppDatabase) = db.membersDao()
 
     @Singleton
     @Provides
-    fun provideRepository(remoteDataSource: RemoteDataSource,localDataSource: MembersDao)
-    = MainRepository(remoteDataSource,localDataSource)
+    fun provideGalleryDao(db: AppDatabase) = db.galleryDao()
+
+    @Singleton
+    @Provides
+    fun provideRepository(remoteDataSource: RemoteDataSource,localDataSource: MembersDao,galleryDataSource: GalleryDao)
+    = MainRepository(remoteDataSource,localDataSource,galleryDataSource)
 }

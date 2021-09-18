@@ -1,5 +1,6 @@
 package com.techipinfotech.allindiacrimepress.data.repository
 
+import com.techipinfotech.allindiacrimepress.data.local.GalleryDao
 import com.techipinfotech.allindiacrimepress.data.local.MembersDao
 import com.techipinfotech.allindiacrimepress.data.remote.RemoteDataSource
 import com.techipinfotech.allindiacrimepress.utils.performGetOperation
@@ -7,7 +8,8 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: MembersDao
+    private val localDataSource: MembersDao,
+    private val galleryDataSource: GalleryDao
 ) {
     fun getMembersList() = performGetOperation(
         databaseQuery = { localDataSource.getMembersList() },
@@ -22,7 +24,11 @@ class MainRepository @Inject constructor(
             localDataSource.insertAll(it)
         })
 
-    suspend fun getGallery() = remoteDataSource.getGallery()
+    fun getGallery() = performGetOperation(
+        databaseQuery = { galleryDataSource.getGallery() },
+        networkCall = { remoteDataSource.getGallery() },
+        saveCallResult = { galleryDataSource.insertAll(it) })
+
     suspend fun getBanner() = remoteDataSource.getBanner()
 
 }
