@@ -1,13 +1,14 @@
 package com.techipinfotech.allindiacrimepress.ui.list
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.techipinfotech.allindiacrimepress.data.repository.MainRepository
+import com.techipinfotech.allindiacrimepress.utils.SharedPrefs
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ListViewModel : ViewModel() {
+@HiltViewModel
+class ListViewModel @Inject constructor(private val repository: MainRepository, private val sharedPrefs: SharedPrefs) :
+    ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
-    }
-    val text: LiveData<String> = _text
+    val members = repository.getMyMembersList(sharedPrefs.get("member_id")!!)
 }

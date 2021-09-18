@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:layout_margin="8dp"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="15dp"
@@ -27,27 +27,28 @@
             app:iss_delay="0"
             app:iss_error_image="@drawable/logo_transparent"
             app:iss_period="1000"
+
             app:iss_placeholder="@drawable/logo_transparent" />
 
     </androidx.cardview.widget.CardView>
 
     <EditText
-        android:id="@+id/member_label"
+        android:id="@+id/search_member"
         style="@style/TextBlack.medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:inputType="text"
-        android:maxLines="1"
         android:background="@drawable/bg_edit_text"
-        android:elevation="5dp"
-        android:gravity="start"
-        android:hint="@string/search"
-        android:padding="10dp"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="10dp"
+        android:elevation="5dp"
+        android:gravity="start|center"
+        android:hint="@string/search"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card" />
@@ -57,14 +58,16 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/member_label"
+        android:paddingTop="10dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@+id/search_member"
         tools:itemCount="8"
+        android:paddingBottom="80dp"
         tools:listitem="@layout/list_member" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

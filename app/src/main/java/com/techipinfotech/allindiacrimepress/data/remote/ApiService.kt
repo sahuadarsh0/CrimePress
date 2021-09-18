@@ -2,10 +2,7 @@ package com.techipinfotech.allindiacrimepress.data.remote
 
 import com.techipinfotech.allindiacrimepress.model.*
 import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -21,8 +18,11 @@ interface ApiService {
     @GET("member/getmembernotification")
     suspend fun getMemberNotification(): Response<Notification>
 
-    @GET("member/getmemberprofile")
-    suspend fun getMemberProfile(): Response<MemberItem>
+    @GET("member/getmemberprofile/{member_id}")
+    suspend fun getMyProfile(@Path("member_id") member_id: String): Response<Members>
+
+    @GET("member/getmymember/{member_id}")
+    suspend fun getMyMembersList(@Path("member_id") member_id: String): Response<Members>
 
     @FormUrlEncoded
     @POST("member/memberlogin")

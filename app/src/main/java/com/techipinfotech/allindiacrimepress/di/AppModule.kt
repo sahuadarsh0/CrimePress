@@ -9,6 +9,7 @@ import com.techipinfotech.allindiacrimepress.data.local.MembersDao
 import com.techipinfotech.allindiacrimepress.data.remote.RemoteDataSource
 import com.techipinfotech.allindiacrimepress.data.repository.MainRepository
 import com.techipinfotech.allindiacrimepress.utils.Constants
+import com.techipinfotech.allindiacrimepress.utils.SharedPrefs
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +25,7 @@ import kotlin.coroutines.CoroutineContext
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object AppModule {
 
     @Provides
     @Singleton
@@ -76,6 +77,11 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideDatabase(@ApplicationContext appContext: Context) = AppDatabase.getDatabase(appContext)
+
+
+    @Singleton
+    @Provides
+    fun provideSharedPrefs(@ApplicationContext appContext: Context) = SharedPrefs(appContext,"USER")
 
     @Singleton
     @Provides

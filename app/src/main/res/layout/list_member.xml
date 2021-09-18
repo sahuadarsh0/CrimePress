@@ -12,7 +12,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
         android:layout_margin="4dp"
         app:cardElevation="2dp">
@@ -23,9 +23,11 @@
 
             <ImageView
                 android:id="@+id/photo"
-                android:layout_width="120dp"
+                android:layout_width="80dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:setImage="@{Constants.PHOTO+member.photo}"
                 android:src="@drawable/logo_transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +39,7 @@
 
             <TextView
                 android:id="@+id/member_id"
-                style="@style/TextBlack.medium"
+                style="@style/TextBlack.small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -63,13 +65,37 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:maxLines="1"
                 android:text="@{member.name}"
                 android:textStyle="normal"
                 app:layout_constraintBaseline_toBaselineOf="@+id/name_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/name_label"
-                app:layout_constraintTop_toBottomOf="@+id/member_id"
                 tools:text="Adarsh" />
+            <TextView
+                android:id="@+id/mobile_label"
+                style="@style/TextBlack.small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Mobile"
+                app:layout_constraintStart_toEndOf="@+id/photo"
+                app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+            <TextView
+                android:id="@+id/mobile"
+                style="@style/TextBlack.small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:maxLines="1"
+                android:text="@{member.mobile}"
+                android:textStyle="normal"
+                app:layout_constraintBaseline_toBaselineOf="@+id/mobile_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/mobile_label"
+                tools:text="9090909090" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

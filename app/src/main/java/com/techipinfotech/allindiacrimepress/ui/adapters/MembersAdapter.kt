@@ -11,7 +11,6 @@ import com.techipinfotech.allindiacrimepress.model.MemberItem
 
 class MembersAdapter(private val onItemClicked: (MemberItem) -> Unit) : ListAdapter<MemberItem, MembersAdapter
 .MembersViewHolder>(DIFFUTIL_CALLBACK) {
-//class MembersAdapter : RecyclerView.Adapter<MembersAdapter.MembersViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MembersViewHolder =
          MembersViewHolder(ListMemberBinding

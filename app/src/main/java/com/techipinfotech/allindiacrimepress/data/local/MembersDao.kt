@@ -1,10 +1,7 @@
 package com.techipinfotech.allindiacrimepress.data.local
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.techipinfotech.allindiacrimepress.model.MemberItem
 import com.techipinfotech.allindiacrimepress.model.Members
 
@@ -22,6 +19,9 @@ interface MembersDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(memberItem: MemberItem)
+
+    @Query("DELETE FROM members")
+    suspend fun clearAll()
 
 
 }

@@ -37,7 +37,6 @@ class HomeFragment : Fragment(){
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         processDialog = ProcessDialog(requireContext())
-
         setupRecyclerView()
         setupObservers()
 
@@ -51,7 +50,8 @@ class HomeFragment : Fragment(){
         val imageList = ArrayList<SlideModel>()
         homeViewModel.banner.observe(viewLifecycleOwner, {
             when (it.status) {
-                LOADING -> processDialog.show()
+                LOADING ->
+                    Log.d("asa", "banner error ${it.message}")
                 SUCCESS -> {
                     val banner = it.data
 
@@ -61,11 +61,11 @@ class HomeFragment : Fragment(){
                         }
                         binding.imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
                     }
-                    processDialog.dismiss()
+
                 }
                 ERROR -> {
                     Log.d("asa", "banner error ${it.message}")
-                    processDialog.dismiss()
+
                 }
 
             }
@@ -96,7 +96,6 @@ class HomeFragment : Fragment(){
     }
 
     private fun onItemClicked(memberItem: MemberItem) {
-
-        Toast.makeText(requireContext(), "asa"+memberItem.id, Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "name "+memberItem.name, Toast.LENGTH_SHORT).show()
     }
 }

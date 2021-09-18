@@ -17,6 +17,6 @@ class ProcessDialog(var context: Context) {
     init {
         dialog.setContentView(R.layout.process_dialog)
         dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-        dialog.setCancelable(false)
+        dialog.setCancelable(true)
     }
 }

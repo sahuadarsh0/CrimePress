@@ -8,10 +8,13 @@ import androidx.databinding.DataBindingUtil
 import com.techipinfotech.allindiacrimepress.R
 import com.techipinfotech.allindiacrimepress.databinding.ActivityLoginBinding
 import com.techipinfotech.allindiacrimepress.utils.SharedPrefs
+import dagger.hilt.android.AndroidEntryPoint
 import eightbitlab.com.blurview.RenderScriptBlur
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
-    private lateinit var userSharedPreferences: SharedPrefs
+    @Inject lateinit var userSharedPreferences: SharedPrefs
     private lateinit var binding: ActivityLoginBinding
     private lateinit var i: Intent
 
@@ -20,7 +23,6 @@ class LoginActivity : AppCompatActivity() {
         setTheme(R.style.Theme_CrimePress)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
-        userSharedPreferences = SharedPrefs(this, "USER")
         i = Intent(this, MainActivity::class.java)
 
         if (userSharedPreferences["member_id"] != null) {
@@ -29,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginButton.setOnClickListener {
+            userSharedPreferences["member_id"] = "AICP000014"
             startActivity(i)
             finish()
         }
