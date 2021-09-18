@@ -38,6 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingTop="10dp"
+        android:layoutAnimation="@anim/layout_animation"
         android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@+id/search_member"
         tools:itemCount="8"

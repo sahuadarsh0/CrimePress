@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginButton.setOnClickListener {
-            userSharedPreferences["member_id"] = "AICP000014"
+            userSharedPreferences["member_id"] = "AICP000009"
             startActivity(i)
             finish()
         }
