@@ -1,13 +1,13 @@
 package com.techipinfotech.allindiacrimepress.ui.gallery
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
+import com.techipinfotech.allindiacrimepress.data.repository.MainRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class GalleryViewModel : ViewModel() {
+@HiltViewModel
+class GalleryViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
-    }
-    val text: LiveData<String> = _text
+    val gallery = liveData { emit(repository.getGallery()) }
 }

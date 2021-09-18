@@ -16,4 +16,12 @@ object BindingAdapters {
             .error(R.drawable.logo_transparent)
             .into(view)
     }
+    @BindingAdapter("android:setImageUrl")
+    @JvmStatic
+    fun setImage(view: ImageView, imageUrl: String?) {
+        Glide.with(view.context)
+            .load(imageUrl)
+            .error(R.drawable.logo_transparent)
+            .into(view)
+    }
 }

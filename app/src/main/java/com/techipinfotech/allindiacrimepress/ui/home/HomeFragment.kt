@@ -77,7 +77,6 @@ class HomeFragment : Fragment(){
                 SUCCESS -> {
                     membersAdapter.submitList(it.data)
                     Log.d("asa", "setupObservers: reached "+it.data)
-                    Log.d("asa", membersAdapter.itemCount.toString())
                     processDialog.dismiss()
                 }
                 ERROR -> {
