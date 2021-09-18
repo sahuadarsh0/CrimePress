@@ -7,9 +7,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.techipinfotech.allindiacrimepress.R
 import com.techipinfotech.allindiacrimepress.databinding.FragmentMyListBinding
 import com.techipinfotech.allindiacrimepress.model.MemberItem
 import com.techipinfotech.allindiacrimepress.ui.adapters.MembersAdapter
@@ -80,6 +83,9 @@ class ListFragment : Fragment() {
             when (resource.status) {
                 Resource.Status.LOADING -> processDialog.show()
                 Resource.Status.SUCCESS -> {
+                    val animationController: LayoutAnimationController =
+                        AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation)
+                    binding.memberList.layoutAnimation = animationController
                     resource.data?.let { members = it }
                     membersAdapter.submitList(members)
                     Log.d("asa", "setupObservers: reached " + resource.data)

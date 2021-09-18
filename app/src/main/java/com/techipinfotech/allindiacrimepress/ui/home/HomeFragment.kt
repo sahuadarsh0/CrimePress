@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,6 +20,8 @@ import com.techipinfotech.allindiacrimepress.utils.Constants
 import com.techipinfotech.allindiacrimepress.utils.ProcessDialog
 import com.techipinfotech.allindiacrimepress.utils.Resource.Status.*
 import dagger.hilt.android.AndroidEntryPoint
+import android.view.animation.LayoutAnimationController
+import com.techipinfotech.allindiacrimepress.R
 
 
 @AndroidEntryPoint
@@ -106,10 +109,15 @@ class HomeFragment : Fragment() {
             when (resource.status) {
                 LOADING -> processDialog.show()
                 SUCCESS -> {
+                    val animationController: LayoutAnimationController =
+                        AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation)
+                    binding.memberList.layoutAnimation = animationController
                     resource.data?.let { members = it }
                     membersAdapter.submitList(members)
                     Log.d("asa", "setupObservers: reached " + resource.data)
                     processDialog.dismiss()
+
+
                 }
                 ERROR -> {
                     Log.d("asa", "member error ${resource.message}")
