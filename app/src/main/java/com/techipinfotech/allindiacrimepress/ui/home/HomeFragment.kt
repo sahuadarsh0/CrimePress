@@ -75,7 +75,6 @@ class HomeFragment : Fragment() {
             }
         }
         membersAdapter.submitList(filteredList)
-        Log.d("asa", "filter:  + ${members.size} + ${filteredList.size} ")
     }
 
     private fun setupObservers() {
