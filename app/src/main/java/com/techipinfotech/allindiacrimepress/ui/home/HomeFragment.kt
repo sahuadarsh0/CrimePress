@@ -8,20 +8,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
+import com.techipinfotech.allindiacrimepress.R
 import com.techipinfotech.allindiacrimepress.databinding.FragmentHomeBinding
 import com.techipinfotech.allindiacrimepress.model.MemberItem
 import com.techipinfotech.allindiacrimepress.ui.adapters.MembersAdapter
 import com.techipinfotech.allindiacrimepress.utils.Constants
 import com.techipinfotech.allindiacrimepress.utils.ProcessDialog
 import com.techipinfotech.allindiacrimepress.utils.Resource.Status.*
+import com.techipinfotech.allindiacrimepress.utils.SharedPrefs
 import dagger.hilt.android.AndroidEntryPoint
-import android.view.animation.LayoutAnimationController
-import com.techipinfotech.allindiacrimepress.R
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -33,6 +36,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var processDialog: ProcessDialog
     private lateinit var members: List<MemberItem>
+    @Inject lateinit var userSharedPreferences: SharedPrefs
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +47,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         processDialog = ProcessDialog(requireContext())
+        processDialog.show()
         setupRecyclerView()
         setupObservers()
 
@@ -74,7 +79,6 @@ class HomeFragment : Fragment() {
         for (member in members) {
             if (member.name!!.lowercase().contains(strTyped.lowercase())) {
                 filteredList.add(member)
-
             }
         }
         membersAdapter.submitList(filteredList)
@@ -114,8 +118,8 @@ class HomeFragment : Fragment() {
                     binding.memberList.layoutAnimation = animationController
                     resource.data?.let { members = it }
                     membersAdapter.submitList(members)
-                    Log.d("asa", "setupObservers: reached " + resource.data)
-                    processDialog.dismiss()
+                    if (members.isNotEmpty())
+                        processDialog.dismiss()
 
 
                 }
@@ -135,6 +139,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun onItemClicked(memberItem: MemberItem) {
+        userSharedPreferences["member_id_temp"] = memberItem.memberId
+        findNavController().navigate(R.id.action_navigation_home_to_navigation_account)
         Toast.makeText(requireContext(), memberItem.name, Toast.LENGTH_SHORT).show()
     }
 }

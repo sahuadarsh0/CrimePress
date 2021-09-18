@@ -19,7 +19,7 @@ interface ApiService {
     suspend fun getMemberNotification(): Response<Notification>
 
     @GET("member/getmemberprofile/{member_id}")
-    suspend fun getMyProfile(@Path("member_id") member_id: String): Response<Members>
+    suspend fun getMemberProfile(@Path("member_id") member_id: String): Response<Members>
 
     @GET("member/getmymember/{member_id}")
     suspend fun getMyMembersList(@Path("member_id") member_id: String): Response<Members>

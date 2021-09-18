@@ -13,19 +13,19 @@ import com.techipinfotech.allindiacrimepress.R
 import com.techipinfotech.allindiacrimepress.databinding.ActivityMainBinding
 import com.techipinfotech.allindiacrimepress.utils.SharedPrefs
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    private lateinit var userSharedPreferences: SharedPrefs
+    @Inject lateinit var userSharedPreferences: SharedPrefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_CrimePress)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        userSharedPreferences = SharedPrefs(this, "USER")
         val navView: BottomNavigationView = binding.navView
         navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.navigation_account -> {
                     navController.navigate(R.id.navigation_account)
+                    userSharedPreferences["member_id_temp"] =  userSharedPreferences["member_id"]
                     return@setOnItemSelectedListener true
                 }
                 R.id.navigation_home -> {
@@ -55,7 +56,6 @@ class MainActivity : AppCompatActivity() {
                         message(text = "Are you sure want to logout ?")
                         cornerRadius(16f)
                         positiveButton(text = "Yes") { dialog ->
-                            userSharedPreferences = SharedPrefs(this@MainActivity, "USER")
                             userSharedPreferences.clearAll()
                             dialog.dismiss()
                             finish()

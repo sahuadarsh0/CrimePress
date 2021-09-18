@@ -30,5 +30,6 @@ class MainRepository @Inject constructor(
         saveCallResult = { galleryDataSource.insertAll(it) })
 
     suspend fun getBanner() = remoteDataSource.getBanner()
+    suspend fun getMemberProfile(memberId: String) = remoteDataSource.getMemberProfile(memberId)
 
 }

@@ -10,5 +10,5 @@ import javax.inject.Inject
 class ListViewModel @Inject constructor(private val repository: MainRepository, private val sharedPrefs: SharedPrefs) :
     ViewModel() {
 
-    val members = repository.getMyMembersList(sharedPrefs.get("member_id")!!)
+    val members = repository.getMyMembersList(sharedPrefs["member_id"]!!)
 }

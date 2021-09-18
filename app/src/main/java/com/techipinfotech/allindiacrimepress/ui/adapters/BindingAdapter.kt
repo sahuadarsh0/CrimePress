@@ -1,6 +1,7 @@
 package com.techipinfotech.allindiacrimepress.ui.adapters
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -16,6 +17,7 @@ object BindingAdapters {
             .error(R.drawable.logo_transparent)
             .into(view)
     }
+
     @BindingAdapter("android:setImageUrl")
     @JvmStatic
     fun setImage(view: ImageView, imageUrl: String?) {
@@ -23,5 +25,13 @@ object BindingAdapters {
             .load(imageUrl)
             .error(R.drawable.logo_transparent)
             .into(view)
+    }
+
+
+    @BindingAdapter("android:setMobile")
+    @JvmStatic
+    fun setMobile(view: TextView, text: String?) {
+        val output = "XXXXX" + (text?.substring(5))
+        view.text = output
     }
 }
