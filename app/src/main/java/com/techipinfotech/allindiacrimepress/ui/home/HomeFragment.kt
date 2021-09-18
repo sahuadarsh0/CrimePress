@@ -42,6 +42,14 @@ class HomeFragment : Fragment() {
 
         setupRecyclerView()
         setupObservers()
+
+        return root
+    }
+
+    private fun setupRecyclerView() {
+        binding.memberList.adapter = membersAdapter
+    }
+    private fun setupObservers() {
         val imageList = ArrayList<SlideModel>()
         homeViewModel.banner.observe(viewLifecycleOwner, {
             when (it.status) {
@@ -61,7 +69,6 @@ class HomeFragment : Fragment() {
         homeViewModel.members.observe(viewLifecycleOwner,{
             when(it.status){
                 SUCCESS -> {
-                   val members = it.data
                     membersAdapter.setList(ArrayList(it.data))
                     membersAdapter.notifyDataSetChanged()
                 }
@@ -69,17 +76,6 @@ class HomeFragment : Fragment() {
             }
         })
 
-
-        return root
-    }
-
-    private fun setupRecyclerView() {
-
-        binding.memberList.layoutManager = LinearLayoutManager(requireContext())
-        binding.memberList.adapter = membersAdapter
-
-    }
-    private fun setupObservers() {
     }
 
 

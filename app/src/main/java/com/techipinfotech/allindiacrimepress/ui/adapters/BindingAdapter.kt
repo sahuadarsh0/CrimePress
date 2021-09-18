@@ -13,7 +13,7 @@ object BindingAdapters {
     fun loadImage(view: ImageView, imageUrl: String?) {
         Glide.with(view.context)
             .load(imageUrl).apply(RequestOptions().circleCrop()).placeholder(R.drawable.logo)
-            .error(R.drawable.logo)
+            .error(R.drawable.logo_transparent)
             .into(view)
     }
 }

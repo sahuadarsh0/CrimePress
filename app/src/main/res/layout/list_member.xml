@@ -13,6 +13,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        app:cardCornerRadius="10dp"
         android:layout_margin="4dp"
         app:cardElevation="2dp">
 
@@ -24,8 +25,9 @@
                 android:id="@+id/photo"
                 android:layout_width="120dp"
                 android:layout_height="0dp"
-                android:src="@drawable/logo"
+                android:layout_marginStart="2dp"
                 android:setImage="@{Constants.PHOTO+member.photo}"
+                android:src="@drawable/logo_transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="h,1:1"
                 app:layout_constraintEnd_toEndOf="parent"
