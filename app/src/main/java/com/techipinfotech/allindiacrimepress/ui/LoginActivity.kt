@@ -2,11 +2,14 @@ package com.techipinfotech.allindiacrimepress.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.techipinfotech.allindiacrimepress.R
 import com.techipinfotech.allindiacrimepress.databinding.ActivityLoginBinding
+import com.techipinfotech.allindiacrimepress.utils.Resource
 import com.techipinfotech.allindiacrimepress.utils.SharedPrefs
 import dagger.hilt.android.AndroidEntryPoint
 import eightbitlab.com.blurview.RenderScriptBlur
@@ -14,7 +17,9 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
-    @Inject lateinit var userSharedPreferences: SharedPrefs
+    @Inject
+    lateinit var userSharedPreferences: SharedPrefs
+    private val loginViewModel: LoginViewModel by viewModels()
     private lateinit var binding: ActivityLoginBinding
     private lateinit var i: Intent
 
@@ -30,12 +35,24 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.loginButton.setOnClickListener {
-            userSharedPreferences["member_id"] = "AICP000009"
-            startActivity(i)
-            finish()
+        binding.apply {
+            loginButton.setOnClickListener {
+                login(username.text.toString(), password.text.toString())
+            }
         }
+        loginViewModel.memberItem.observe(this,{
+            when(it.status){
+                Resource.Status.LOADING -> Log.d("asa", "onCreate: loading")
+                Resource.Status.SUCCESS -> Log.d("asa", "onCreate: loading")
+                Resource.Status.ERROR -> Log.d("asa", "onCreate: loading")
+
+            }
+        })
         initBlur()
+    }
+
+    private fun login(username: String, password: String) {
+        loginViewModel.login(username, password)
     }
 
     private fun initBlur() {

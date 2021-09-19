@@ -31,5 +31,6 @@ class MainRepository @Inject constructor(
 
     suspend fun getBanner() = remoteDataSource.getBanner()
     suspend fun getMemberProfile(memberId: String) = remoteDataSource.getMemberProfile(memberId)
+    suspend fun login(username: String, password: String) = remoteDataSource.login(username, password)
 
 }

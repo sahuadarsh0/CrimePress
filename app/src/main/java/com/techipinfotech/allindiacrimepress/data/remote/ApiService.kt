@@ -29,13 +29,13 @@ interface ApiService {
     suspend fun login(
         @Field("user_name") user_name: String?,
         @Field("password") password: String?
-    ): Response<MemberItem?>?
+    ): Response<MemberItem>
 
     @FormUrlEncoded
     @POST("changepassword")
     fun changePassword(
         @Field("user_name") user_name: String?,
         @Field("user_password") password: String?
-    ): Response<MemberItem?>?
+    ): Response<MemberItem>
 
 }
