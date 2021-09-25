@@ -7,7 +7,6 @@ import kotlinx.coroutines.Dispatchers
 import com.techipinfotech.allindiacrimepress.utils.Resource.Status.*
 
 
-
 fun <T, A> performGetOperation(databaseQuery: () -> LiveData<T>,
                                networkCall: suspend () -> Resource<A>,
                                saveCallResult: suspend (A) -> Unit): LiveData<Resource<T>> =

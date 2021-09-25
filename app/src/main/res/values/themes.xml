@@ -21,7 +21,6 @@
     </style>
 
 
-
     <style name="TextGrey">
         <item name="android:textColor">@color/grey</item>
         <item name="android:textStyle">bold</item>
@@ -82,6 +81,16 @@
     </style>
 
     <style name="TextWhite.large">
-        <item name="android:textSize">22sp</item></style>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="SplashScreenTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="SplashScreenTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SplashScreenTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 </resources>

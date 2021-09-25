@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/SplashScreenTheme">
         <activity
+            android:name=".ui.MainActivity2"
+            android:exported="true"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/SplashScreenTheme.NoActionBar" />
+        <activity
             android:name=".ui.LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -23,8 +28,8 @@
         </activity>
         <activity
             android:name=".ui.MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

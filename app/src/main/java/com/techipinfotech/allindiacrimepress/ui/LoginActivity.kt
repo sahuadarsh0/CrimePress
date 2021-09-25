@@ -43,8 +43,12 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.memberItem.observe(this,{
             when(it.status){
                 Resource.Status.LOADING -> Log.d("asa", "onCreate: loading")
-                Resource.Status.SUCCESS -> Log.d("asa", "onCreate: loading")
-                Resource.Status.ERROR -> Log.d("asa", "onCreate: loading")
+                Resource.Status.SUCCESS ->{ Log.d("asa", "onCreate: SUCCESS")
+                    userSharedPreferences["member_id"] = "AICP000004"
+                        startActivity(i)
+                        finish()
+                }
+                Resource.Status.ERROR -> Log.d("asa", "onCreate: ERROR")
 
             }
         })
